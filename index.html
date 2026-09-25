@@ -67,17 +67,14 @@ ul{margin:0;padding:0;list-style:none}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;cursor:pointer;border:0;background:none;padding:0;text-align:center}
-.btn-t{position:relative;overflow:hidden;min-height:58px;display:flex;align-items:center;justify-content:center;padding:10px 28px;border:1.5px solid var(--line2);border-radius:999px;background:#fff;color:var(--deep);font-weight:600;font-size:20px;line-height:1.2;transition:color .45s var(--ease),border-color .45s var(--ease)}
-.btn-t::before{content:"";position:absolute;inset:0;background:var(--deep);border-radius:inherit;transform:translateY(101%);transition:transform .5s var(--ease)}
-.btn-t span{position:relative}
-.btn-a{flex:none;width:58px;height:58px;margin-left:-4px;border-radius:50%;background:var(--sky);color:var(--deep);display:grid;place-items:center;transition:background .4s}
-.btn-a svg{width:24px;height:24px;transition:transform .5s var(--ease)}
-.btn:hover .btn-t{color:#fff;border-color:var(--deep)}
-.btn:hover .btn-t::before{transform:none}
-.btn:hover .btn-a svg{transform:rotate(45deg)}
+.btn-t{position:relative;overflow:hidden;min-height:58px;display:flex;align-items:center;justify-content:center;padding:10px 28px;border:1.5px solid var(--line2);border-radius:999px;background:#fff;color:var(--deep);font-weight:600;font-size:20px;line-height:1.2;transition:background-color .2s,color .2s,border-color .2s}
+.btn-a{flex:none;width:58px;height:58px;margin-left:-4px;border-radius:50%;background:var(--sky);color:var(--deep);display:grid;place-items:center;transition:background-color .2s,color .2s}
+.btn-a svg{width:24px;height:24px}
+.btn:hover .btn-t{background:var(--deep);color:#fff;border-color:var(--deep)}
+.btn:hover .btn-a{background:var(--deep);color:var(--sky)}
 .btn.dark .btn-t{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
-.btn.dark .btn-t::before{background:#fff}
-.btn.dark:hover .btn-t{color:var(--deep);border-color:#fff}
+.btn.dark:hover .btn-t{background:#fff;color:var(--deep);border-color:#fff}
+.btn.dark:hover .btn-a{background:#fff;color:var(--deep)}
 .u{position:relative;display:inline-block}
 .u::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1.5px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
 .u:hover::after{transform:scaleX(1);transform-origin:left}
@@ -94,8 +91,8 @@ ul{margin:0;padding:0;list-style:none}
 .nav a{padding:8px 18px;border-radius:999px;color:#fff;font-size:20px;white-space:nowrap;transition:background .35s,color .35s}
 .nav a:hover,.nav a.on{background:var(--sky);color:var(--deep)}
 .hdr .btn-t{min-height:50px;padding:6px 22px;background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
-.hdr .btn-t::before{background:#fff}
-.hdr .btn:hover .btn-t{color:var(--deep)}
+.hdr .btn:hover .btn-t{background:#fff;color:var(--deep);border-color:#fff}
+.hdr .btn:hover .btn-a{background:#fff;color:var(--deep)}
 .hdr .btn-a{width:50px;height:50px}
 .burger{display:none;width:52px;height:52px;border-radius:50%;border:1.5px solid rgba(255,255,255,.45);background:rgba(8,61,77,.35);cursor:pointer;place-items:center}
 .burger span{display:block;width:20px;height:1.5px;background:#fff;box-shadow:0 6px 0 #fff,0 -6px 0 #fff}
@@ -207,8 +204,8 @@ ul{margin:0;padding:0;list-style:none}
 
 /* prices */
 .prices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;align-items:stretch}
-.pc{display:flex;flex-direction:column;gap:28px;padding:clamp(28px,3vw,40px);border-radius:var(--r2);background:#fff;border:1px solid #ececec;transition:transform .5s var(--ease),box-shadow .5s}
-.pc:hover{transform:translateY(-6px);box-shadow:0 30px 60px -36px rgba(8,61,77,.4)}
+.pc{display:flex;flex-direction:column;gap:28px;padding:clamp(28px,3vw,40px);border-radius:var(--r2);background:#fff;border:1px solid #ececec;transition:box-shadow .3s}
+.pc:hover{box-shadow:0 30px 60px -36px rgba(8,61,77,.4)}
 .pc .meta{font-size:20px;color:var(--mute)}
 .pc .price{white-space:nowrap;font-size:clamp(40px,3.6vw,56px);line-height:1;font-weight:800;color:var(--ink);letter-spacing:-.02em}
 .pc ul{display:grid;gap:14px}
@@ -251,18 +248,18 @@ ul{margin:0;padding:0;list-style:none}
 .foot .wm{margin-top:10px;padding-bottom:clamp(20px,3vw,40px)}
 
 /* sticky mobile cta */
-.mcta{position:fixed;left:16px;right:16px;bottom:14px;z-index:40;display:none;transform:translateY(140%);transition:transform .5s var(--ease)}
-.mcta.show{transform:none}
+.mcta{position:fixed;left:16px;right:16px;bottom:14px;z-index:40;display:none;visibility:hidden}
+.mcta.show{visibility:visible}
 .mcta .btn{width:100%;box-shadow:0 18px 40px -16px rgba(8,61,77,.6);border-radius:999px}
 .mcta .btn-t{flex:1;padding:8px 14px;white-space:nowrap;background:var(--deep);color:#fff;border-color:var(--deep)}
-.mcta .btn-t::before{background:#0d5166}
+.mcta .btn:hover .btn-t{background:#0d5166;border-color:#0d5166}
 
 /* dialogs */
 dialog{border:0;padding:0;background:transparent;max-width:none;max-height:none;color:var(--ink)}
 dialog::backdrop{background:rgba(8,40,52,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
 .modal{width:min(640px,calc(100vw - 32px));max-height:calc(100svh - 32px);overflow:auto;background:#fff;border-radius:var(--r2);padding:clamp(24px,4vw,44px);position:relative}
-.x{position:absolute;right:16px;top:16px;width:48px;height:48px;border-radius:50%;border:1.5px solid var(--line2);background:#fff;cursor:pointer;font-size:26px;line-height:1;color:var(--ink);transition:transform .4s var(--ease),background .3s}
-.x:hover{transform:rotate(90deg);background:var(--sky)}
+.x{position:absolute;right:16px;top:16px;width:48px;height:48px;border-radius:50%;border:1.5px solid var(--line2);background:#fff;cursor:pointer;font-size:26px;line-height:1;color:var(--ink);transition:background-color .2s}
+.x:hover{background:var(--sky)}
 .modal h2{font-size:clamp(28px,3vw,36px);text-transform:uppercase;line-height:1.1;padding-right:56px}
 .modal .lead{margin:12px 0 26px}
 fieldset{border:0;padding:0;margin:0 0 22px}
@@ -407,7 +404,7 @@ legend,.fl{display:block;margin-bottom:10px;color:var(--ink);font-weight:600}
       </div>
       <h1 data-up>Поймите, о&nbsp;чём сигналит тело</h1>
       <p class="hero-sub" data-up>Помогаю понять, о&nbsp;чём говорят боли или отёки, и&nbsp;что с&nbsp;этим делать. Снизить напряжение и&nbsp;вернуть себе силы действовать.</p>
-      <div class="hero-cta" data-up>
+      <div class="hero-cta">
         <a class="btn" href="https://t.me/tatyanakuzmins" data-book data-fmt="diag"><span class="btn-t"><span>Бесплатная диагностика</span></span><span class="btn-a"><svg><use href="#arr"/></svg></span></a>
         <span class="hero-note">30 минут, онлайн, 0&nbsp;₽</span>
       </div>
@@ -475,7 +472,7 @@ legend,.fl{display:block;margin-bottom:10px;color:var(--ink);font-weight:600}
       <article class="fc"><div class="fc-top"><div class="ico"><svg><use href="#i-wave"/></svg></div><span class="n">05</span></div><h3 class="h3">Постоянное напряжение</h3></article>
       <article class="fc"><div class="fc-top"><div class="ico"><svg><use href="#i-loop"/></svg></div><span class="n">06</span></div><h3 class="h3">Трудно что-то менять</h3></article>
     </div>
-    <div class="after" data-up>
+    <div class="after">
       <p>Если вы узнали себя, приходите на бесплатную диагностику. За&nbsp;30&nbsp;минут разберём ваш запрос и&nbsp;найдём, какой стресс стоит за&nbsp;состоянием.</p>
       <a class="btn" href="https://t.me/tatyanakuzmins" data-book data-fmt="diag"><span class="btn-t"><span>Записаться</span></span><span class="btn-a"><svg><use href="#arr"/></svg></span></a>
     </div>
@@ -602,7 +599,7 @@ legend,.fl{display:block;margin-bottom:10px;color:var(--ink);font-weight:600}
 <!-- CHANNEL -->
 <section class="sec alt" style="padding:clamp(64px,7vw,100px) 0">
   <div class="wrap">
-    <div class="chan" data-up>
+    <div class="chan">
       <span class="tg"><svg><use href="#tg"/></svg></span>
       <div>
         <h2 class="h3" style="text-transform:uppercase">Мой канал в Telegram</h2>
@@ -620,7 +617,7 @@ legend,.fl{display:block;margin-bottom:10px;color:var(--ink);font-weight:600}
       <span class="lbl">Вопросы</span>
       <h2 class="h2" data-up>Частые<br>вопросы</h2>
       <p class="lead" data-up>Не нашли ответ? Напишите, отвечу лично.</p>
-      <div data-up><a class="btn" href="https://t.me/tatyanakuzmins" target="_blank" rel="noopener"><span class="btn-t"><span>Написать в Telegram</span></span><span class="btn-a"><svg><use href="#arr"/></svg></span></a></div>
+      <div><a class="btn" href="https://t.me/tatyanakuzmins" target="_blank" rel="noopener"><span class="btn-t"><span>Написать в Telegram</span></span><span class="btn-a"><svg><use href="#arr"/></svg></span></a></div>
     </div>
     <div class="rows qa" data-acc>
       <div class="row" data-row>
@@ -659,7 +656,7 @@ legend,.fl{display:block;margin-bottom:10px;color:var(--ink);font-weight:600}
       <div>
         <h2 class="h2" data-up>Готовы начать?</h2>
         <p data-up>Запишитесь на&nbsp;бесплатную диагностику. 30&nbsp;минут онлайн: разберём запрос и&nbsp;решим, как двигаться дальше.</p>
-        <div data-up><a class="btn dark" href="https://t.me/tatyanakuzmins" data-book data-fmt="diag"><span class="btn-t"><span>Записаться на диагностику</span></span><span class="btn-a"><svg><use href="#arr"/></svg></span></a></div>
+        <div><a class="btn dark" href="https://t.me/tatyanakuzmins" data-book data-fmt="diag"><span class="btn-t"><span>Записаться на диагностику</span></span><span class="btn-a"><svg><use href="#arr"/></svg></span></a></div>
       </div>
       <div class="foot-links">
         <a href="https://t.me/tatyanakuzmins" target="_blank" rel="noopener"><span class="u">Telegram</span><svg><use href="#arr"/></svg></a>
@@ -906,15 +903,6 @@ document.addEventListener('DOMContentLoaded',function(){
     var fw=document.querySelector('.foot [data-wm]');
     gsap.from(fw.querySelectorAll('.ch'),{yPercent:110,duration:1,ease:'expo.out',stagger:.03,scrollTrigger:{trigger:fw,start:'top 95%',once:true}});
 
-    // magnetic arrows
-    if(matchMedia('(pointer:fine)').matches){
-      document.querySelectorAll('.btn').forEach(function(b){
-        var a=b.querySelector('.btn-a'); if(!a)return;
-        var qx=gsap.quickTo(a,'x',{duration:.4,ease:'power3'}),qy=gsap.quickTo(a,'y',{duration:.4,ease:'power3'});
-        b.addEventListener('mousemove',function(e){var r=a.getBoundingClientRect();qx((e.clientX-r.left-r.width/2)*.3);qy((e.clientY-r.top-r.height/2)*.3)});
-        b.addEventListener('mouseleave',function(){qx(0);qy(0)});
-      });
-    }
     window.addEventListener('load',function(){ScrollTrigger.refresh()});
   }
   if(window.gsap)motion();else window.addEventListener('load',motion);
